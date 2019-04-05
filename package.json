@@ -1,0 +1,20 @@
+{
+  "name": "express-server-goodmovies-webdv-sp19",
+  "version": "1.0.0",
+  "description": "backend server for goodmovies spring19 wbdev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Purvil Bambharolia",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.22"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+
+}
