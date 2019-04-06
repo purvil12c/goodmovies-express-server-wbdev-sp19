@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+var session = require('express-session');
 
 // create express app
 const app = express();
+app.use(session({secret: 'ssshhhhh'}));
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -30,6 +32,8 @@ mongoose.connect(dbConfig.url, {
 app.get('/', (req, res) => {
     res.json({"message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes."});
 });
+
+require('./app/routes/user.routes.js')(app);
 
 // listen for requests
 app.listen(3000, () => {

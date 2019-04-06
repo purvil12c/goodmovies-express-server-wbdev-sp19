@@ -1,0 +1,21 @@
+User Apis::
+
+User model -
+username, password, type (normal/critic), reviews, ratings
+
+-----------------
+login - post /login
+
+signup - post /users
+
+get - get /users (get all users)
+
+get - get /users/:userId (find one user)
+
+update - put /users/:userId
+
+delete - delete /users/:userId
+
+logout - post /logout
+
+------------------
