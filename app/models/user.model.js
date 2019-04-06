@@ -4,13 +4,15 @@ var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 
 const UserSchema = mongoose.Schema({
-  username: {type: String, lowercase: true, required: [true, "can't be blank"], match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true},
+  username: {type: String, lowercase: true, required: [true, "can't be blank"], unique: true, match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true},
   password: {type: String, required: [true, "can't be blank"]},
   email: {type: String, lowercase: true, match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
   type: {type: String, required: [true, "can't be blank"]},
   ratings: [{movieId: {type: String}, rating: {type: Number}}],
   reviews: [{reviewId: {type: 'ObjectId'}}],
-  watchlist: [{movieId: {type: String}}]
+  watchlist: [{movieId: {type: String}}],
+  followers: [{userId: {type: 'ObjectId'}}],
+  following: [{userId: {type: 'ObjectId'}}]
 });
 
 UserSchema.plugin(uniqueValidator, {message: 'is already taken.'});

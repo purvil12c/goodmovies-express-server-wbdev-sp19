@@ -6,7 +6,7 @@ username, password, type (normal/critic), reviews, ratings
 -----------------
 login - post /login
 
-signup - post /users
+signup - post /signup
 
 get - get /users (get all users)
 
@@ -19,3 +19,10 @@ delete - delete /users/:userId
 logout - post /logout
 
 ------------------
+If user with username already exists -
+/signup
+returns
+{
+    "message": "User validation failed: username: is already taken."
+}
+-------------
