@@ -30,7 +30,7 @@ mongoose.connect(dbConfig.url, {
 
 // define a simple route
 app.get('/', (req, res) => {
-    res.json({"message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes."});
+    res.json({"message": "GoodMovies Backend Server"});
 });
 
 require('./app/routes/user.routes.js')(app);

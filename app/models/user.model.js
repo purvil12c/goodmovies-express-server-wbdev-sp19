@@ -8,8 +8,9 @@ const UserSchema = mongoose.Schema({
   password: {type: String, required: [true, "can't be blank"]},
   email: {type: String, lowercase: true, match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
   type: {type: String, required: [true, "can't be blank"]},
-  ratings: [{movieId: {type: 'ObjectId'}, rating: {type: Number}}],
-  reviews: [{reviewId: {type: 'ObjectId'}}]
+  ratings: [{movieId: {type: String}, rating: {type: Number}}],
+  reviews: [{reviewId: {type: 'ObjectId'}}],
+  watchlist: [{movieId: {type: String}}]
 });
 
 UserSchema.plugin(uniqueValidator, {message: 'is already taken.'});
