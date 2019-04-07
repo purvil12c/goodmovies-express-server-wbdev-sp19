@@ -1,11 +1,26 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 var session = require('express-session');
-var cors = require('cors')
+var cors = require('cors');
 
 // create express app
 const app = express();
-app.use(cors());
+
+var allowedOrigins = ['http://localhost:3000',
+                      'http://goodmovies-react-deployed-url.com'];
+app.use(cors({
+  origin: function(origin, callback){
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      var msg = 'The CORS policy for this site does not ' +
+                'allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
+}));
+
+
 app.use(session({secret: 'ssshhhhh'}));
 
 // parse requests of content-type - application/x-www-form-urlencoded
