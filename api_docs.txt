@@ -28,3 +28,12 @@ returns
     "message": "User validation failed: username: is already taken."
 }
 -------------
+
+Reviews model -
+ movieId,body,title,reviewId (_id)
+
+ ------------
+post - /reviews - create new review - pass in req.body
+get - /reviews - example - localhost:3000/reviews?movieId=123456&reviewId=5caa2f6e34a4e7189ef199b8 - fetches reviews for specified reviewId and movieId
+put - /reviews/:reviewId - pass in req.body - overwrites existing review
+delete - /reviews/:deleteId - deletes for reviewId
