@@ -18,6 +18,8 @@ delete - delete /users/:userId
 
 logout - post /users/logout
 
+profile - get /users/profile - retrieves the current logged in user.
+
 ------------------
 If user with username already exists -
 /signup

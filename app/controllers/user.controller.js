@@ -56,13 +56,12 @@ exports.login = (req, res) => {
 
       user.comparePassword(req.body.password, function(err, isMatch) {
           if (err) {
-            req.session['currentUser'] = user;
             return res.status(500).send({
               message: "Error occurred: "+err.message
             })
           }
           if(isMatch){
-
+            req.session['currentUser'] = user;
             return res.status(200).send(user);
           }
           res.status(404).send({message: 'Password is incorrect'});
@@ -74,6 +73,13 @@ exports.login = (req, res) => {
             message: "Error retrieving user with username " + req.body.username
         });
     });
+}
+
+exports.profile = (req, res) => {
+  if(req.session['currentUser']!=undefined){
+    return res.status(200).send(req.session['currentUser']);
+  }
+  res.status(404).send({message: 'You are not logged in'});
 }
 
 exports.logout = (req, res) => {
