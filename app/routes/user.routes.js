@@ -7,6 +7,8 @@ module.exports = (app) => {
 
     app.get('/users/profile', users.profile);
 
+    app.post('/users/logout', users.logout);
+
     app.get('/users', users.findAll);
 
     app.get('/users/:userId', users.findOne);
@@ -15,6 +17,5 @@ module.exports = (app) => {
 
     app.delete('/users/:userId', users.delete);
 
-    app.post('/users/logout', users.logout);
 
 }
