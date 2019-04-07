@@ -72,11 +72,11 @@ exports.findByReviewId = (req, res) => {
 exports.findByQuery = (req, res) => {
   let query = {
   }
-  if(req.params.reviewId!=undefined){
-    query._id = req.params.reviewId;
+  if(req.query.reviewId!=undefined){
+    query._id = req.query.reviewId;
   }
-  if(req.params.movieId!=undefined){
-    query.movieId = req.params.movieId;
+  if(req.query.movieId!=undefined){
+    query.movieId = req.query.movieId;
   }
 
   Review.find(query)
