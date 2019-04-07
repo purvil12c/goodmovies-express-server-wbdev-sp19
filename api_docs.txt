@@ -28,3 +28,16 @@ returns
     "message": "User validation failed: username: is already taken."
 }
 -------------
+
+Review Model -
+title, body, movieId, reviewId
+
+Review APIs -
+
+post - /reviews - to create new review. Send in req.body
+
+get - /reviews - sample query - localhost:3000/reviews?movieId=123456&reviewId=5caa2f6e34a4e7189ef199b8 - fetches all reviews for specified reviewId and movieId
+
+put - /reviews/:reviewId  - update review, send update object in req.body
+
+delete - /reviews/:reviewId - delete review for specified reviewId
