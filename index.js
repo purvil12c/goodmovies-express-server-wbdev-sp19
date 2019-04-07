@@ -13,7 +13,7 @@ var corsOptions = {
       callback(null, true)
     } else {
       // callback(new Error('Not allowed by CORS'))
-      callback(null, true)
+      callback(null, true);
     }
   },
   credentials: true
@@ -51,6 +51,7 @@ app.get('/', (req, res) => {
 });
 
 require('./app/routes/user.routes.js')(app);
+require('./app/routes/review.routes.js')(app);
 
 // listen for requests
 app.listen(process.env.PORT || 3000, () => {
