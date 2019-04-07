@@ -4,9 +4,9 @@ User model -
 username, password, type (normal/critic), reviews, ratings
 
 -----------------
-login - post /login
+login - post /users/login
 
-signup - post /signup
+signup - post /users/signup
 
 get - get /users (get all users)
 
@@ -16,7 +16,7 @@ update - put /users/:userId
 
 delete - delete /users/:userId
 
-logout - post /logout
+logout - post /users/logout
 
 ------------------
 If user with username already exists -

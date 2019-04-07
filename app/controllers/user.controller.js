@@ -7,9 +7,9 @@ exports.create = (req, res) => {
         type: req.body.type
   });
   user.save()
-    .then(data=>{
+    .then(user=>{
       req.session['currentUser'] = user;
-      res.send(data);
+      res.send(user);
     })
     .catch(err=>{
       res.status(500).send({
@@ -45,7 +45,7 @@ exports.findOne = (req, res) => {
     });
 };
 
-exports.findUserByCredentials = (req, res) => {
+exports.login = (req, res) => {
   User.findOne({username: req.body.username})
     .then(user=>{
       if(!user){
@@ -56,11 +56,13 @@ exports.findUserByCredentials = (req, res) => {
 
       user.comparePassword(req.body.password, function(err, isMatch) {
           if (err) {
+            req.session['currentUser'] = user;
             return res.status(500).send({
               message: "Error occurred: "+err.message
             })
           }
           if(isMatch){
+
             return res.status(200).send(user);
           }
           res.status(404).send({message: 'Password is incorrect'});

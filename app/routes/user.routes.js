@@ -1,9 +1,9 @@
 module.exports = (app) => {
     const users = require('../controllers/user.controller.js');
 
-    app.post('/login', users.findUserByCredentials);
+    app.post('/users/login', users.login);
 
-    app.post('/signup', users.create);
+    app.post('/users/signup', users.create);
 
     app.get('/users', users.findAll);
 
@@ -13,5 +13,5 @@ module.exports = (app) => {
 
     app.delete('/users/:userId', users.delete);
 
-    app.post('/logout', users.logout);
+    app.post('/users/logout', users.logout);
 }
