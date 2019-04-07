@@ -1,0 +1,30 @@
+User Apis::
+
+User model -
+username, password, type (normal/critic), reviews, ratings
+
+-----------------
+login - post /users/login
+
+signup - post /users/signup
+
+get - get /users (get all users)
+
+get - get /users/:userId (find one user)
+
+update - put /users/:userId - pass new user json through body, it will overwrite/replace the existing user object in mongo for the userId passed as param.
+
+delete - delete /users/:userId
+
+logout - post /users/logout
+
+profile - get /users/profile - retrieves the current logged in user.
+
+------------------
+If user with username already exists -
+/signup
+returns
+{
+    "message": "User validation failed: username: is already taken."
+}
+-------------
