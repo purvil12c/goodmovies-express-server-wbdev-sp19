@@ -1,11 +1,7 @@
 const User = require('../models/user.model.js');
 
 exports.create = (req, res) => {
-  const user = new User({
-        username: req.body.username,
-        password: req.body.password,
-        type: req.body.type
-  });
+  const user = req.body;
   user.save()
     .then(user=>{
       req.session['currentUser'] = user;
