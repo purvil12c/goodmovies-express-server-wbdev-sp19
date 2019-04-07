@@ -12,7 +12,7 @@ get - get /users (get all users)
 
 get - get /users/:userId (find one user)
 
-update - put /users/:userId
+update - put /users/:userId - pass new user json through body, it will overwrite/replace the existing user object in mongo for the userId passed as param.
 
 delete - delete /users/:userId
 

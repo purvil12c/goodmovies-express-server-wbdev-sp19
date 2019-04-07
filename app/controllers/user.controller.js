@@ -94,7 +94,15 @@ exports.logout = (req, res) => {
 }
 
 exports.update = (req, res) => {
-
+  User.findOneAndUpdate({_id: req.params.userId}, req.body, function(err, user){
+    if(err){
+      return res.status(500).send({message: 'error occured while updating'});
+    }
+    if(!user){
+      return res.status(404).send({message: 'user not found'});
+    }
+    return res.status(200).send(user);
+  });
 };
 
 exports.delete = (req, res) => {
