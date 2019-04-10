@@ -37,3 +37,9 @@ post - /reviews - create new review - pass in req.body
 get - /reviews - example - localhost:3000/reviews?movieId=123456&reviewId=5caa2f6e34a4e7189ef199b8 - fetches reviews for specified reviewId and movieId
 put - /reviews/:reviewId - pass in req.body - overwrites existing review
 delete - /reviews/:deleteId - deletes for reviewId
+
+---------------
+
+Follow API -
+post - /users/:userId/follow/:followId - makes user with userId follow user with followId
+post - /users/:userId/unfollow/:followId - makes user with userId unfollow user with followId

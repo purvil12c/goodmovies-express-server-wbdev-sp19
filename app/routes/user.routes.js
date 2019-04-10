@@ -1,5 +1,6 @@
 module.exports = (app) => {
     const users = require('../controllers/user.controller.js');
+    const follow = require('../controllers/follow.controller.js')
 
     app.post('/users/login', users.login);
 
@@ -17,5 +18,8 @@ module.exports = (app) => {
 
     app.delete('/users/:userId', users.delete);
 
+    app.post('/users/:userId/follow/:followId', follow.follow);
+
+    app.post('/users/:userId/unfollow/:followId', follow.unfollow);
 
 }
