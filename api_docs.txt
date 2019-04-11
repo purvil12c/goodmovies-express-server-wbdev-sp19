@@ -43,3 +43,9 @@ delete - /reviews/:deleteId - deletes for reviewId
 Follow API -
 post - /users/:userId/follow/:followId - makes user with userId follow user with followId
 post - /users/:userId/unfollow/:followId - makes user with userId unfollow user with followId
+
+---------------
+
+Watchlist API -
+post - /users/:userId/watchlist/:movieId
+post - /users/:userId/unwatchlist/:movieId 
