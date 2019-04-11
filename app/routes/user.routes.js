@@ -1,6 +1,7 @@
 module.exports = (app) => {
     const users = require('../controllers/user.controller.js');
-    const follow = require('../controllers/follow.controller.js')
+    const follow = require('../controllers/follow.controller.js');
+    const watchlist = require('../controllers/watchlist.controller.js');
 
     app.post('/users/login', users.login);
 
@@ -21,5 +22,9 @@ module.exports = (app) => {
     app.post('/users/:userId/follow/:followId', follow.follow);
 
     app.post('/users/:userId/unfollow/:followId', follow.unfollow);
+
+    app.post('/users/:userId/watchlist/:movieId', watchlist.addToWatchlist);
+
+    app.post('/users/:userId/unwatchlist/:movieId', watchlist.removeFromWatchlist);
 
 }
