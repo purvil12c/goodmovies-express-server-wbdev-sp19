@@ -104,7 +104,7 @@ exports.update = (req, res) => {
     if(!user){
       return res.status(404).send({message: 'user not found'});
     }
-    return res.status(200).send(user);
+    return res.status(200).send(req.body);
   });
 };
 

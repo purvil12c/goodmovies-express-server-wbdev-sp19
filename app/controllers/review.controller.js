@@ -4,6 +4,7 @@ const User = require('../models/user.model.js');
 exports.create = (req, res) => {
   const review = new Review({
         username: req.body.username,
+        movieName: req.body.movieName,
         title: req.body.title,
         userId: req.body.userId,
         movieId: req.body.movieId,
