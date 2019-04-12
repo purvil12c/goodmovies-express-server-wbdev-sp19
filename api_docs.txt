@@ -30,7 +30,7 @@ returns
 -------------
 
 Reviews model -
- movieId,body,title,reviewId (_id)
+ username,movieId,body,title,reviewId (_id)
 
  ------------
 post - /reviews - create new review - pass in req.body
@@ -41,11 +41,11 @@ delete - /reviews/:deleteId - deletes for reviewId
 ---------------
 
 Follow API -
-post - /users/:userId/follow/:followId - makes user with userId follow user with followId
+post - /users/:userId/follow/:followId - makes user with userId follow user with followId, pass username in body.
 post - /users/:userId/unfollow/:followId - makes user with userId unfollow user with followId
 
 ---------------
 
 Watchlist API -
-post - /users/:userId/watchlist/:movieId
-post - /users/:userId/unwatchlist/:movieId 
+post - /users/:userId/watchlist/:movieId pass movieName in body
+post - /users/:userId/unwatchlist/:movieId
