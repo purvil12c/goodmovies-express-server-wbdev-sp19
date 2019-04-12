@@ -4,15 +4,17 @@ exports.follow = (req, res) => {
   let userId = req.params.userId;
   let followId = req.params.followId;
 
+  let username = req.body.username;
+
   User.findById(userId)
     .then(user=>{
 
-      user.following.push({userId: followId});
+      user.following.push({userId: followId, username: username});
       return user.save();
     })
     .then(()=>User.findById(followId))
     .then(user2=>{
-      user2.followers.push({userId: userId});
+      user2.followers.push({userId: userId, username: username});
       return user2.save();
     })
     .then(()=>res.status(200).send({message: "Followed Successfully"}))

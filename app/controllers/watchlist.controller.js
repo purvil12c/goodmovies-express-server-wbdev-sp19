@@ -4,9 +4,11 @@ exports.addToWatchlist = (req, res) => {
   let userId = req.params.userId;
   let movieId = req.params.movieId;
 
+  let movieName = req.body.movieName;
+
   User.findById(userId)
     .then(user=>{
-      user.watchlist.push({movieId: movieId});
+      user.watchlist.push({movieId: movieId, movieName: movieName});
       return user.save();
     })
     .then(()=>res.status(200).send({message: "Added to watchlist successfully"}))
