@@ -11,10 +11,10 @@ const UserSchema = mongoose.Schema({
   email: {type: String, lowercase: true, match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
   type: {type: String, required: [true, "can't be blank"]},
   ratings: [{movieId: {type: String}, rating: {type: Number}}],
-  reviews: [{reviewId: {type: 'ObjectId'}}],
-  watchlist: [{movieId: {type: String}}],
-  followers: [{userId: {type: 'ObjectId'}}],
-  following: [{userId: {type: 'ObjectId'}}]
+  reviews: [{reviewId: {type: 'ObjectId', required: true}, username: {type: String, required: true}}],
+  watchlist: [{movieId: {type: String, required: true}, movieName: {type: String, required: true}}],
+  followers: [{userId: {type: 'ObjectId', required: true}, username: {type: String, required: true}}],
+  following: [{userId: {type: 'ObjectId', required: true}, username: {type: String, required: true}}]
 });
 
 UserSchema.plugin(uniqueValidator, {message: 'is already taken.'});
