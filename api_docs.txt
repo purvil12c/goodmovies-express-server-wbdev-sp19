@@ -38,6 +38,8 @@ get - /reviews - example - localhost:3000/reviews?movieId=123456&reviewId=5caa2f
 put - /reviews/:reviewId - pass in req.body - overwrites existing review
 delete - /reviews/:deleteId - deletes for reviewId
 
+get - /users/:userId/reviews - fetches all the reviews for userId
+
 ---------------
 
 Follow API -

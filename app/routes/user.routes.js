@@ -2,6 +2,7 @@ module.exports = (app) => {
     const users = require('../controllers/user.controller.js');
     const follow = require('../controllers/follow.controller.js');
     const watchlist = require('../controllers/watchlist.controller.js');
+    const review = require('../controllers/review.controller.js')
 
     app.post('/users/login', users.login);
 
@@ -26,5 +27,7 @@ module.exports = (app) => {
     app.post('/users/:userId/watchlist/:movieId', watchlist.addToWatchlist);
 
     app.post('/users/:userId/unwatchlist/:movieId', watchlist.removeFromWatchlist);
+
+    app.get('/users/:userId/reviews', review.findReviewsByUserId);
 
 }

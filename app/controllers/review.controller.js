@@ -71,6 +71,18 @@ exports.findByReviewId = (req, res) => {
     });
 }
 
+exports.findReviewsByUserId = (req, res) => {
+  Review.find({userId: req.params.userId})
+    .then(reviews => {
+      res.status(200).send(reviews);
+    })
+    .catch(err => {
+      res.status(500).send({
+          message: err.message || "Some error occurred while retrieving reviews."
+      });
+    })
+}
+
 exports.findByQuery = (req, res) => {
   let query = {
   }
