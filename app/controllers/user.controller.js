@@ -82,13 +82,17 @@ exports.profile = (req, res) => {
   if(req.session['currentUser']!=undefined){
     User.findById(req.session['currentUser']._id)
       .then(user=>{
+        console.log(user)
         res.status(200).send(user);
       })
       .catch(err => {
+        console.log(err)
         res.status(500).send({err: err.message});
       })
   }
-  res.status(404).send({message: 'You are not logged in'});
+  else{
+    res.status(404).send({message: 'You are not logged in'});
+  }
 }
 
 exports.logout = (req, res) => {
