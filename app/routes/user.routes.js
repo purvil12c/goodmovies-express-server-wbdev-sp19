@@ -2,7 +2,8 @@ module.exports = (app) => {
     const users = require('../controllers/user.controller.js');
     const follow = require('../controllers/follow.controller.js');
     const watchlist = require('../controllers/watchlist.controller.js');
-    const review = require('../controllers/review.controller.js')
+    const review = require('../controllers/review.controller.js');
+    const twitter = require('../controllers/twitter.controller.js')
 
     app.post('/users/login', users.login);
 
@@ -31,5 +32,7 @@ module.exports = (app) => {
     app.get('/users/:userId/reviews', review.findReviewsByUserId);
 
     app.get('/users/search/:username', users.searchByUsername);
+
+    app.get('/twitter/:movieName', twitter.searchTweetsByMovie);
 
 }
