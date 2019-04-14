@@ -43,7 +43,7 @@ get - /users/:userId/reviews - fetches all the reviews for userId
 ---------------
 
 Follow API -
-post - /users/:userId/follow/:followId - makes user with userId follow user with followId, pass username in body.
+post - /users/:userId/follow/:followId - makes user with userId follow user with followId
 post - /users/:userId/unfollow/:followId - makes user with userId unfollow user with followId
 
 ---------------
@@ -51,3 +51,7 @@ post - /users/:userId/unfollow/:followId - makes user with userId unfollow user 
 Watchlist API -
 post - /users/:userId/watchlist/:movieId pass movieName in body
 post - /users/:userId/unwatchlist/:movieId
+
+---------------
+SearchByUsername API -
+get - /users/search/:username - search users with matching username
