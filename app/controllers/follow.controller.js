@@ -4,17 +4,36 @@ exports.follow = (req, res) => {
   let userId = req.params.userId;
   let followId = req.params.followId;
 
-  let username = req.body.username;
+  // let username = req.body.username;
+  //
+  // User.findById(userId)
+  //   .then(user=>{
+  //
+  //     user.following.push({userId: followId, username: username});
+  //     return user.save();
+  //   })
+  //   .then(()=>User.findById(followId))
+  //   .then(user2=>{
+  //     user2.followers.push({userId: userId, username: username});
+  //     return user2.save();
+  //   })
+  //   .then(()=>res.status(200).send({message: "Followed Successfully"}))
+  //   .catch(err=>res.status(500).send({message: err.message}));
 
+  let user1;
+  let user2;
   User.findById(userId)
-    .then(user=>{
-
-      user.following.push({userId: followId, username: username});
-      return user.save();
+    .then(user => {
+      user1 = user;
+      return User.findById(followId);
     })
-    .then(()=>User.findById(followId))
-    .then(user2=>{
-      user2.followers.push({userId: userId, username: username});
+    .then(user => {
+      user2 = user;
+      user1.following.push({userId: followId, username: user2.username});
+      return user1.save();
+    })
+    .then(()=>{
+      user2.followers.push({userId: userId, username: user1.username});
       return user2.save();
     })
     .then(()=>res.status(200).send({message: "Followed Successfully"}))
