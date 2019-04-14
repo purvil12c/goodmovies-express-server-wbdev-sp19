@@ -51,3 +51,7 @@ post - /users/:userId/unfollow/:followId - makes user with userId unfollow user 
 Watchlist API -
 post - /users/:userId/watchlist/:movieId pass movieName in body
 post - /users/:userId/unwatchlist/:movieId
+
+---------------
+SearchByUsername API -
+get - /users/search/:username - search users with matching username

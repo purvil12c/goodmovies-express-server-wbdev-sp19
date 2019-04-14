@@ -126,3 +126,13 @@ exports.delete = (req, res) => {
     res.status(200).send({message: 'Successfully deleted'});
   });
 };
+
+exports.searchByUsername = (req, res) => {
+  User.find({ username: {'$regex': req.params.username, '$options': 'i'}})
+    .then(users=>{
+      res.status(200).send(users);
+    })
+    .catch(err=>{
+      res.status(500).send({message: err.message | "Error occured"});
+    })
+}

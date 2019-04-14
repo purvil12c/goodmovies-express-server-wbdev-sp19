@@ -30,4 +30,6 @@ module.exports = (app) => {
 
     app.get('/users/:userId/reviews', review.findReviewsByUserId);
 
+    app.get('/users/search/:username', users.searchByUsername);
+
 }
