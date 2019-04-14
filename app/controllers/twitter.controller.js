@@ -7,5 +7,5 @@ var client = new Twitter({
 
 
 exports.searchTweetsByMovie = (req, res) =>
-  client.get('search/tweets', {q: req.params.movieName})
+  client.get('search/tweets', {q: req.params.movieName, lang: 'en', result_type: 'popular'})
     .then(tweets=>res.send(tweets));
