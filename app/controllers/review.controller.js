@@ -14,12 +14,13 @@ exports.create = (req, res) => {
     .then(review=>{
       User.findById(req.body.userId)
         .then(user=>{
-          user.reviews.push({reviewId: review._id});
+          user.reviews.push({reviewId: review._id, username: user.username});
           user.save()
             .then(user=>{
               res.send(review);
             })
         })
+        .catch(err=>res.status(500).send({message: err.message}))
     })
     .catch(err=>{
       res.status(500).send({
