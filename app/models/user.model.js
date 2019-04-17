@@ -12,7 +12,7 @@ const UserSchema = mongoose.Schema({
   type: {type: String, required: [true, "can't be blank"]},
   ratings: [{movieId: {type: String}, rating: {type: Number}}],
   reviews: [{reviewId: {type: 'ObjectId', required: true}, username: {type: String, required: true}}],
-  watchlist: [{movieId: {type: String, required: true}, movieName: {type: String, required: true}}],
+  watchlist: [{movieId: {type: String, required: true}, movieName: {type: String, required: true}, imageUrl: {type: String}}],
   followers: [{userId: {type: 'ObjectId', required: true}, username: {type: String, required: true}}],
   following: [{userId: {type: 'ObjectId', required: true}, username: {type: String, required: true}}]
 });
